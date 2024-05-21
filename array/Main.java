@@ -1,8 +1,11 @@
 package array;
 
+import string.CheckPangram;
+
 public class Main {
     public static void main(String a[]) {
-        GreatestNumberCanFormed g = new GreatestNumberCanFormed();
-        System.out.println(g.number(new int[]{45, 63, 31, 99}));
+        int[] array = {5,7,2,1,8};
+        ProductOfTop3 p = new ProductOfTop3();
+        System.out.println(p.product(array));
     }
 }
