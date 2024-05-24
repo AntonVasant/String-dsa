@@ -7,6 +7,6 @@ public class Reverse {
         head.next.next = head;
         head.next= null;
         return head1;
-
+//recursion
     }
 }

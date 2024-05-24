@@ -1,16 +1,15 @@
 package array;
 
 public class MoveZero {
-    public int[] zero(int[] array){
-        int[] result= new int[array.length];
-        int index=0;
-        for(int num : array){
-            if(num !=0)
-                result[index++]=num;
+    public void moveZeroes(int[] nums) {
+        int left = 0;
+        for(int right = 0;right < nums.length;right++){
+            if(nums[right] != 0){
+                int temp = nums[right];
+                nums[right] = nums[left];
+                nums[left] = temp;
+                left++;
+            }
         }
-        for(int i=index;i< array.length;i++){
-            array[i]=0;
-        }
-        return result;
     }
 }
