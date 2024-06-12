@@ -1,6 +1,6 @@
 package string;
 public class Reverse {
-    public String reverse(String str){
+    public static String reverse(String str){
         if(str == null || str.isEmpty())
             return"";
         int start =0;
@@ -14,10 +14,6 @@ public class Reverse {
             start++;
             end--;
         }
-        StringBuffer sb = new StringBuffer();
-        for(char ch : c){
-            sb.append(ch);
-        }
-        return sb.toString();
+         return new String(c);
     }
 }

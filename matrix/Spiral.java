@@ -32,5 +32,5 @@ public class Spiral {
 
         }
         return list;
-    }
+    }//lookup  pointers
 }

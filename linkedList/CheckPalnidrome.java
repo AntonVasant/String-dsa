@@ -9,7 +9,7 @@ public class CheckPalnidrome {
             slow=slow.next;
         }
         Node secondHalf = reverse(slow.next);
-       return check(head,slow);
+       return check(head,secondHalf);
     }
     private boolean check(Node first,Node secondHalf){
         while (first != null && secondHalf != null){

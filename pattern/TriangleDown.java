@@ -120,4 +120,13 @@ public class TriangleDown {
             1234  4321
             1234554321*/
     }
+    public static void triangleNumber(int number){
+        for (int i = 1; i <number; i++){
+            for (int j = 0; j < number-i;j++)
+                System.out.print(" ");
+            for (int k = 1; k <= i + 2;k++)
+                System.out.print(i);
+            System.out.println();
+        }
+    }
 }

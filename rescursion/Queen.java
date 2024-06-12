@@ -5,73 +5,64 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Queen {
-    public void queen(){
-        int n = 8;
-        List<List<String>> res = solveQueen(n);
-        for (List<String> list : res){
-            for (String s : list){
-                System.out.println(s+" ");
-            }
-            System.out.println();
-        }
-    }
-    private List<List<String>> solveQueen(int n){
+    public List<List<String>> solveNQueens(int n) {
         char[][] board = new char[n][n];
-        List<List<String>> res = new ArrayList<>();
-        for (int i =0;i<n;i++){
-            for (int j=0;j<n;j++){
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < n; j++){
                 board[i][j] = '.';
             }
         }
-        dfs(res,board,0);
-        return res;
+        List<List<String>> ans = new ArrayList<>();
+        helper(board,ans,0);
+        return ans;
     }
-    private void dfs(List<List<String>> res,char[][] board,int col){
+
+
+    private void helper(char[][] board,List<List<String>> ans,int col){
         if(col == board.length){
-            res.add(construct(board));
+            ans.add(construct(board));
             return;
         }
-        for (int i=0;i< board.length;i++){
-            if(validate(i,col,board)){
-                board[i][col] = 'Q';
-                dfs(res,board,col+1);
-                board[i][col] = '.';
+        for(int row = 0; row < board.length; row++){
+            if(validate(board,row,col)){
+                board[row][col] = 'Q';
+                helper(board,ans,col+1);
+                board[row][col] = '.';
             }
         }
-
     }
-    private boolean validate(int row,int col,char[][] board){
-        int tempRow =row;
-        int tempCol = col;
-        while (row >=0 && col>=0){
-            if (board[row][col] == 'Q')
-                return false;
+
+    private List<String> construct(char[][] board){
+        List<String> list = new LinkedList<>();
+        for(int i = 0; i < board.length; i++){
+            String s = new String(board[i]);
+            list.add(s);
+        }
+        return list;
+    }
+
+
+    private boolean validate(char[][] board,int row,int col){
+        int rowTemp = row;
+        int colTemp = col;
+        while(row >=0 && col >= 0){
+            if(board[row][col] == 'Q') return false;
             row--;
             col--;
         }
-        row = tempRow;
-        col = tempCol;
-        while (col >= 0){
-            if (board[row][col] == 'Q')
-                return false;
-            col--;
-        }
-        row = tempRow;
-        col = tempCol;
-        while (col >= 0 && row< board.length){
-            if (board[row][col] == 'Q')
-                return false;
+        row = rowTemp;
+        col = colTemp;
+        while(col >= 0 && row < board.length){
+            if(board[row][col] == 'Q') return false;
             row++;
             col--;
         }
-        return true;
-    }
-    private List<String> construct(char[][] board){
-        List<String> res = new LinkedList<>();
-        for (int i=0;i< board.length;i++){
-            String s = new String(board[i]);
-            res.add(s);
+        col = colTemp;
+        row =  rowTemp;
+        while(col >= 0){
+            if(board[row][col] == 'Q') return false;
+            col--;
         }
-        return res;
+        return true;
     }
 }
