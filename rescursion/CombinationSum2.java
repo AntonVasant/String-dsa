@@ -9,7 +9,7 @@ public class CombinationSum2 {
                 lists.add(new ArrayList<>(list));
                 return;
             }
-        for(int i= index;i< array.length;i++){
+        for(int i = index;i< array.length;i++){
             if(i > index && array[i] == array[i-1]) continue;
             if(array[i] > target) break;
             list.add(array[i]);

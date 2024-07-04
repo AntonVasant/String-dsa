@@ -1,7 +1,7 @@
 package array;
 
 public class MaxProduct {
-    public int maxProduct(int[] nums) {
+    public static int maxProduct(int[] nums) {
         int n = nums.length;
         int prefix = 1;
         int suffix = 1;

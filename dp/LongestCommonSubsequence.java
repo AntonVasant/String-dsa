@@ -61,6 +61,6 @@ public class LongestCommonSubsequence {
                 }else j--;
 
                 }
-        System.out.println(sb);
+        System.out.println(sb.reverse());
             }
 }

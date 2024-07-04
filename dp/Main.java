@@ -1,17 +1,9 @@
 package dp;
 
-import string.Reverse;
-
 public class Main {
     public static void main(String a[]){
-         String str1 = "waterrfetawx";
-         int n =  NumberOfInsertionDeletionPalindrome.insertion(str1);
-           System.out.println(n);
-//        for (int i = 0; i < 6; i++){
-//            for (int j = 0; j < 6; j++){
-//                System.out.print(dp[i][j]+" ");
-//            }
-//            System.out.println();
-//        }
+        int[][] grid = {{12,434,55},{34,5232,43},{43,24,111}};
+         int n = NinjaTraining.training(grid,3);
+        System.out.println(n);
     }
 }

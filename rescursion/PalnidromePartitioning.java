@@ -9,7 +9,7 @@ public class PalnidromePartitioning {
             lists.add(new ArrayList<>(list));
             return;
         }
-        for(int i = index;i<str.length();++i){
+        for(int i = index;i<str.length();i++){
             if (isPalindrome(str,index,i)){
                 list.add(str.substring(index,i+1));
                 partitioning(str,i+1,lists,list);

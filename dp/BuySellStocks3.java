@@ -18,8 +18,10 @@ public class BuySellStocks3 {
         if(dp[index][buy][cap] != -1) return dp[index][buy][cap];
         int profit = 0;
         if(buy == 1){
-            profit = Math.max(-array[index] + helper(array,0,index+1,dp,n,cap),helper(array,1,index+1,dp,n,cap));
-        }else profit = Math.max(array[index] + helper(array,1,index+1,dp,n,cap-1),helper(array,0,index+1,dp,n,cap));
+            profit = Math.max(-array[index]
+                    + helper(array,0,index+1,dp,n,cap),helper(array,1,index+1,dp,n,cap));
+        }else profit = Math.max(array[index]
+                + helper(array,1,index+1,dp,n,cap-1),helper(array,0,index+1,dp,n,cap));
         return dp[index][buy][cap] = profit;
     }
 }

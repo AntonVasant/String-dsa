@@ -17,8 +17,10 @@ public class SellStockWithFee {
         if(dp[index][buy] != -1) return dp[index][buy];
         int profit = 0;
         if(buy == 1){
-            profit = Math.max(-array[index] + helper(array,index+1,0,dp,n,fee),helper(array,index+1,1,dp,n,fee));
-        }else profit = Math.max(array[index]-fee + helper(array,index+1,1,dp,n,fee),helper(array,index+1,0,dp,n,fee));
+            profit = Math.max(-array[index]
+                    + helper(array,index+1,0,dp,n,fee),helper(array,index+1,1,dp,n,fee));
+        }else profit = Math.max(array[index]-fee
+                + helper(array,index+1,1,dp,n,fee),helper(array,index+1,0,dp,n,fee));
         return dp[index][buy] = profit;
     }
 }

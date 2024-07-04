@@ -4,7 +4,7 @@ import java.util.PriorityQueue;
 
 public class MergeKList {
     public Node mergeKLists(Node[] lists) {
-        PriorityQueue<Node> pq = new PriorityQueue<>((a, b) -> a.value - b.value);
+        PriorityQueue<Node> pq = new PriorityQueue<>();
         for(Node list : lists){
             if(list != null)
                 pq.add(list);

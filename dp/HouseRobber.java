@@ -1,5 +1,7 @@
 package dp;
 
+import java.util.Arrays;
+
 public class HouseRobber {
     public static int robber(int[] array,int index){
         if (index == 0) return array[0];
@@ -28,5 +30,26 @@ public class HouseRobber {
             dp[i] = Math.max(pick,notPick);
         }
         return dp[index];
+    }
+
+    public int rob2(int[] nums) {
+        int index = nums.length;
+        if(index == 1)  return nums[0];
+        int[] dp = new int[index+1];
+        Arrays.fill(dp, -1);
+        int[] dp2 = new int[index+1];
+        Arrays.fill(dp2, -1);
+        int first = helper(nums,index-1,dp,1);
+        int second = helper(nums,index-2,dp2,0);
+        return Math.max(first,second);
+    }
+
+    private int helper(int[] nums, int index, int[] dp,int start) {
+        if(index == start) return nums[start];
+        if(index < start) return 0;
+        if(dp[index] != -1) return dp[index];
+        int pick = nums[index] + helper(nums, index-2, dp,start);
+        int nonPick = helper(nums, index-1, dp,start);
+        return dp[index] = Math.max(pick, nonPick);
     }
 }

@@ -8,7 +8,7 @@ public class GroupAnagram {
         for(String word : str){
             char[] ch = word.toCharArray();
             Arrays.sort(ch);
-            String sorted  = new String(ch);
+            String sorted  = String.valueOf(ch);
             if(map.containsKey(sorted)){
                 map.get(sorted).add(word);
             }else{
