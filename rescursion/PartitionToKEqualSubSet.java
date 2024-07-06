@@ -5,13 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PartitionToKEqualSubSet {
-    public static boolean partition(int[] array,int k){
-        int sum = Arrays.stream(array).sum();
+    public static boolean canPartitionKSubsets(int[] nums, int k) {
+        int sum = Arrays.stream(nums).sum();
         int target = sum/k;
-        Arrays.sort(array);
-        boolean[] used= new boolean[array.length];
+        if (sum % target != 0) return false;
+        Arrays.sort(nums);
+        if(nums[nums.length-1] > target) return false;
+        boolean[] used= new boolean[nums.length];
         Map<String,Boolean> map = new HashMap<>();
-        return helper(array,0,used,k,map,0,target);
+        return helper(nums,0,used,k,map,0,target);
     }
 
     private static boolean helper(int[] array, int start, boolean[] used, int k,
