@@ -46,8 +46,6 @@ public class Board {
             if (row == col)
                 diag += String.valueOf(board[i][i]);
         }
-        System.out.println(over+" over");
-        System.out.println(straight+" str");
         if (over.equals(straight) || over.equals(diag) || over.equals(down)){
             System.out.println("Congrats "+player.getPlayerName()+" you have won the game");
             return true;
@@ -74,20 +72,19 @@ public class Board {
     }
 
     private void initializeBoard(char[][] board){
-        for (int i = 0; i < board.length; i++){
-            for (int j = 0; j < board[0].length; j++){
-                if (i%2 == 0 && j%2 != 0){
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if (i % 2 == 0 && j % 2 != 0) {
                     board[i][j] = '|';
                 }
-                if (i%2 != 0 && j%2 != 0){
+                if (i % 2 != 0 && j % 2 != 0) {
                     board[i][j] = '+';
                 }
-                if (i%2 != 0 && j%2 == 0){
+                if (i % 2 != 0 && j % 2 == 0) {
                     board[i][j] = '-';
                 }
             }
         }
-        print();
     }
 
     void print(){

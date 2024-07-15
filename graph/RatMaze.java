@@ -1,4 +1,4 @@
-package LLD;
+package graph;
 
 public class RatMaze {
     int[][] directions = {{0,1},{1,0}};

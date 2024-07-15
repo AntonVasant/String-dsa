@@ -1,16 +1,13 @@
 package LLD;
 
-import java.util.Scanner;
+
 
 public class Main {
-    public static void main(String a[]){
-        int[][] maze = {
-                {1, 1, 0, 1},
-                {1, 1, 1, 1},
-                {0, 0, 1, 1},
-                {1, 1, 0, 4}
-        };
-        int n = NumberOfStepsRat.minimumSteps(maze,0,0);
-        System.out.println(n);
+    public static void main(String a[]) {
+        String s = "hey this is just a testing for the text implementation of a text editor which have few features similar text to the normal text editor hope it works fine";
+        TextEditor textEditor = new TextEditor();
+        textEditor.initialize(s);
+        textEditor.printAll();
+        textEditor.textJustify(18);
     }
 }

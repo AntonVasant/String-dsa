@@ -1,25 +1,30 @@
 package array;
 
+import java.util.Arrays;
+
 public class Sort012 {
-    public void sortColors(int[] nums) {
+    public static void sort(int[] a){
         int low = 0;
+        int high = a.length-1;
         int mid = 0;
-        int high = nums.length-1;
         while (mid <= high){
-            if(nums[mid] == 0){
-                swap(nums,mid,low);
-                low++;
+            if (a[mid] == 0){
+                swap(a,low,mid);
                 mid++;
-            }else if (nums[mid] == 1) mid++;
-            else {
-                swap(nums,mid,high);
+                low++;
+            } else if (a[mid] == 1) {
+                mid++;
+            }else {
+                swap(a,mid,high);
                 high--;
             }
         }
+        System.out.println(Arrays.toString(a));
     }
-    private void swap(int[] array,int first,int second){
-        int temp = array[first];
-        array[first] = array[second];
-        array[second] = temp;
+
+    private static void swap(int[] array,int low,int high){
+        int temp = array[low];
+        array[low] = array[high];
+        array[high] = temp;
     }
 }

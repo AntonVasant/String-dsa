@@ -8,8 +8,8 @@ public class BrickBreaker {
         static final char EMPTY = ' ';
         static final char BRICK = '#';
         static final char BALL = 'O';
-        static final char PADDLE = '@';
-        static final char BORDER = '=';
+        static final char PADDLE = '=';
+        static final char BORDER = '*';
 
         static char[][] board = new char[HEIGHT][WIDTH];
         static int ballX = WIDTH / 2, ballY = HEIGHT - 3;

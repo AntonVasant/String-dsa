@@ -45,12 +45,14 @@ public class MineSweeper {
         revealed[row][col] = true;
         int count = countAdjacentCells(row,col);
         if (count > 0)
-            board[row][col] = (char) ('0'+count);
+            board[row][col] = (char) (count);
         else {
             board[row][col] = ' ';
             for (int i = -1; i < 2; i++){
                 for (int j = -1; j < 2; j++){
-                    revealCell(row+i,col+j);
+                    if (i >= 0 && j >= 0 && j < board.length && i < board.length){
+                        revealCell(row+i,col+j);
+                    }
                 }
             }
         }

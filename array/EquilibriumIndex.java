@@ -1,11 +1,11 @@
 package array;
 
+import java.util.Arrays;
+
 public class EquilibriumIndex {
     public int index(int[] array){
-        int total=0;
         int leftSum=0;
-        for (int num : array)
-            total+=num;
+        int total = Arrays.stream(array).sum();
         for (int i=0;i<array.length;i++){
             total-=array[i];
             if (total==leftSum)
