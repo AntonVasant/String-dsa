@@ -1,16 +1,22 @@
 package graph;
 
 public class GameOfLife {
-    public void game(int[][] board){
+    public void gameOfLife(int[][] board){
         int row = board.length;
         int col = board[0].length;
         int[][] updates = new int[row][col];
         for (int i = 0; i < row ; i++){
             for (int j = 0; j < col; j++){
                  int alive = countAdjacent(board,i,j);
-                 if (alive > 3 || alive < 2){
-                     updates[i][j] = 0;
-                 }else updates[i][j] = 1;
+                if (board[i][j] == 1){
+                    if (alive > 3 || alive < 2)
+                        updates[i][j] = 0;
+                    else updates[i][j] = 1;
+                }else{
+                    if (alive == 3)
+                        updates[i][j] = 1;
+                    else updates[i][j] = 0;
+                }
             }
         }
         for (int i = 0; i < row; i++){

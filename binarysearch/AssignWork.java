@@ -12,7 +12,7 @@ public class AssignWork {
              pairs[i][0] = difficulty[i];
              pairs[i][1] = profit[i];
         }
-        Arrays.sort(pairs,(a,b) -> Integer.compare(a[1],b[1]));
+        Arrays.sort(pairs,(a,b) -> a[1] - b[1]);
         for (int[] num : pairs)
             System.out.print(Arrays.toString(num)+" ");
          for (int worker : workers)

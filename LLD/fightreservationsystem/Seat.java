@@ -10,6 +10,15 @@ public class Seat {
 
     private boolean isAvailable;
 
+    public Seat(Flight flight) {
+        this.flight = flight;
+    }
+
+    public Seat(String s, boolean b) {
+        seatId = s;
+        isAvailable = b;
+    }
+
     public boolean isAvailable() {
         return isAvailable;
     }

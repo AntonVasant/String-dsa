@@ -1,7 +1,7 @@
 package binarysearch;
 
 public class SingleNonDuplicate {
-    public int singleNonDuplicate(int[] nums) {
+    public static int singleNonDuplicate(int[] nums) {
         int n = nums.length;
         int low = 1;
         int high = nums.length-2;

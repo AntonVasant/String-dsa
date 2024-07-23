@@ -11,10 +11,8 @@ public class CoinChange {
         int ans = helper(coins,amount,coins.length-1,dp);
         return ans >= (int)1e9 ? -1 : ans;
     }
-
-
     private int helper(int[] array,int amount,int index,int[][] dp){
-        if (amount == 0) return 0; // No more amount to be made up
+        if (amount == 0) return 0;
         if (index < 0) return (int)1e9;
         if(dp[index][amount] != -1) return dp[index][amount];
         int take = (int)1e9;

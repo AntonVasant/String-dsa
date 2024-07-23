@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class GamePlay {
+public class
+        GamePlay {
     char[][] board;
     Queue<Node> snake;
     Queue<Node> food;

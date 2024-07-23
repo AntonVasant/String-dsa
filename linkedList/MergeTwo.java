@@ -19,7 +19,6 @@ public class MergeTwo {
             current = current.next;
         }
 
-        // Append the remaining nodes from the non-empty list
         if (list1 != null) {
             current.next = list1;
         } else {

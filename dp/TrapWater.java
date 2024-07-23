@@ -5,7 +5,6 @@ public class TrapWater {
             if (height == null || height.length == 0) {
                 return 0;
             }
-
             int n = height.length;
             int[] leftMax = new int[n];
             int[] rightMax = new int[n];

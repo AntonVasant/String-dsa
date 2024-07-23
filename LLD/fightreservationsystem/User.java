@@ -5,6 +5,12 @@ public class User {
     private String userName;
     private String email;
 
+    public User(String name,String email,String id) {
+        this.email = email;
+        this.userName = name;
+        this.userId = id;
+    }
+
     public String getEmail() {
         return email;
     }

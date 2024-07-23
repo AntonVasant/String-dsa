@@ -12,7 +12,7 @@ public class Board {
     public Board(Player player1,Player player2,int n){
         this.board = new char[2*n-1][2*n-1];
         initializeBoard(board);
-        this.nextTurn = new LinkedList<>();
+        nextTurn = new LinkedList<>();
         nextTurn.offer(player1);
         nextTurn.offer(player2);
         input = new Scanner(System.in);

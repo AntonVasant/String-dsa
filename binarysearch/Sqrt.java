@@ -1,7 +1,7 @@
 package binarysearch;
 
 public class Sqrt {
-    public int mySqrt(int x) {
+    public static void mySqrt(int x) {
         int high = x;
         int low = 1;
         int mid;
@@ -14,6 +14,6 @@ public class Sqrt {
             }
             else high = mid - 1;
         }
-        return ans;
+        System.out.println(ans);
     }
 }

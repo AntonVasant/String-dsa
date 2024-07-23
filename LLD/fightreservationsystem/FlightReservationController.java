@@ -1,5 +1,7 @@
 package LLD.fightreservationsystem;
 
+import org.w3c.dom.ls.LSResourceResolver;
+
 public class FlightReservationController {
 
     private Service service;
@@ -8,8 +10,9 @@ public class FlightReservationController {
         this.service = service;
     }
 
-    public Ticket bookTicket(String userId,String flightId,SeatType seat){
-        return service.bookTicket(userId,flightId,seat);
+    public void bookTicket(String userId,String flightId,SeatType seat){
+        Ticket ticket =  service.bookTicket(userId,flightId,seat);
+        System.out.println("your flight name  "+ticket.getFlight().getFlightName());
     }
 
     public String cancelTicket(Ticket ticket){
@@ -20,5 +23,10 @@ public class FlightReservationController {
 
     public void showAvailableSeats(String flightId){
         service.showAvailableTickets(flightId);
+    }
+
+    public void creatUser(String name,String email){
+       User user =  service.createUser(name,email);
+        System.out.println("your id "+user.getUserId());
     }
 }

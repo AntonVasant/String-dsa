@@ -32,6 +32,12 @@ public class Service {
         repository.showAvailableSeats(flightId);
     }
 
+    public User createUser(String name,String email){
+        String id = UUID.randomUUID().toString();
+        User user = new User(name,email,id);
+        repository.createUser(user,id);
+        return user;
+    }
     private Seat getAvailableSeat(String flight,SeatType seatType){
         Seat seat = repository.getAvailableSeat(flight, seatType);
         return seat;
@@ -42,6 +48,7 @@ public class Service {
         User user = repository.getUserById(userId);
         Flight flight = repository.getFlightById(flightId);
         Ticket ticket = new Ticket(flight,user,ticketId,seat);
+        ticket.setSeat(seat);
         return ticket;
     }
 }

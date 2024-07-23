@@ -9,14 +9,12 @@ public class Sort012 {
         while(current != null){
             if(current.value == 0){
                 dummy0.next = current;
-                current = current.next;
             } else if (current.value == 1) {
                 dummy1.next = current;
-                current=current.next;
             }else {
                 dummy2.next=current;
-                current=current.next;
             }
+            current=current.next;
         }
         dummy0.next=dummy1.next;
         dummy1.next=dummy2.next;

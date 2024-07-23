@@ -36,10 +36,8 @@ public class WordLadder2 {
         }
         graph.put(beginWord,new ArrayList<>());
         boolean foundEnd = false;
-        int level = 0;
 
         while (!queue.isEmpty() && !foundEnd) {
-            level++;
             int size = queue.size();
             Set<String> visited = new HashSet<>();
 

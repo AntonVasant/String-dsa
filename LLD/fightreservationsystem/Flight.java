@@ -1,6 +1,7 @@
 package LLD.fightreservationsystem;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +13,16 @@ public class Flight {
     private LocalDateTime departure;
     private LocalDateTime arrival;
     Map<String,Seat> seats;
+
+    public Flight(String id,String name,String origin,String destination,LocalDateTime departure, LocalDateTime arrival) {
+        this.arrival = arrival;
+        this.departure = departure;
+        this.flightName = name;
+        this.origin = origin;
+        this.destination = destination;
+        this.flightId = id;
+        seats = new HashMap<>();
+    }
 
     public Map<String, Seat> getSeats() {
         return seats;
@@ -34,6 +45,7 @@ public class Flight {
     }
 
     public void setDeparture(LocalDateTime departure) {
+
         this.departure = departure;
     }
 
@@ -59,5 +71,17 @@ public class Flight {
 
     public void setOrigin(String origin) {
         this.origin = origin;
+    }
+
+    public void addSeat(String s, Seat seat) {
+        seats.put(s,seat);
+    }
+
+    public String getFlightName() {
+        return flightName;
+    }
+
+    public void setFlightName(String flightName) {
+        this.flightName = flightName;
     }
 }

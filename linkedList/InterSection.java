@@ -13,7 +13,7 @@ public class InterSection {
             temp2 = (temp2 == null) ? headA : temp2.next;
         }
 
-        return temp1; // This will either be the intersection node or null
+        return temp1;
     }
 
 }
