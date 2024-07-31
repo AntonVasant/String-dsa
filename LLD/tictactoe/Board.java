@@ -56,8 +56,12 @@ public class Board {
     private int[] getMove(){
         System.out.println("Enter the row number");
         int row = input.nextInt();
+       if (row == 1) row = 0;
+       else if (row == 3) row = 4;
         System.out.println("Enter the col number");
         int col = input.nextInt();
+        if (col == 1) col = 0;
+        else if (col == 3) col = 4;
         while (!validateMove(row,col)){
             System.out.println("the move is not valid,enter the correct move");
             getMove();
