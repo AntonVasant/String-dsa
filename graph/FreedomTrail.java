@@ -6,8 +6,6 @@ public class FreedomTrail {
         public int findRotateSteps(String ring, String key) {
             int rLen = ring.length();
             int kLen = key.length();
-
-            // Build the map to store all positions of each character in the ring
             Map<Character, List<Integer>> charToIndices = new HashMap<>();
             for (int i = 0; i < rLen; i++) {
                 charToIndices.computeIfAbsent(ring.charAt(i), k -> new ArrayList<>()).add(i);

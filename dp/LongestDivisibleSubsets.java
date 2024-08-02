@@ -29,7 +29,7 @@ public class LongestDivisibleSubsets {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5};
+        int[] nums = {1, 2, 3, 4, 5,15,21,39,45};
         List<Integer> result = largestDivisibleSubset(nums);
         result.forEach(System.out::println);
     }

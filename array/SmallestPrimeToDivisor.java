@@ -5,7 +5,7 @@ public class SmallestPrimeToDivisor {
         int prime=0;
         int num=0;
         int[] res = new int[first.length];
-       for(int i=0;i< first.length;i++){
+        for(int i=0; i < first.length; i++){
            num=first[i];
            if(first[i]%second[i]==0){
                res[i]=0;
