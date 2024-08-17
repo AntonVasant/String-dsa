@@ -1,2 +1,4 @@
-package LLD.parkinglot;public class Service {
+package LLD.parkinglot.seervice;
+
+public class Service {
 }

@@ -1,4 +1,4 @@
-package array;
+package rescursion;
 
 import graph.FreedomTrail;
 

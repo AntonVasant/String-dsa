@@ -1,13 +1,12 @@
 package matrix;
-
-import java.util.Arrays;
-
 public class Main {
-    public static void main(String a[])
-    {
-        int[][] array={{1,2,3},{4,5,6},{7,8,9}};
-        Transpose.matrix(array);
+    public static void main(String a[]) {
+        int[][] array = {{1, 0, 0, 0},
+                         {1, 1, 0, 0}};
+        int[][] pos = {{1,1},{1, 0}};
+        BrickFall brickFall = new BrickFall();
+        int[] n = brickFall.hitBricks(array, pos);
+        for (int i : n)
+            System.out.println(i);
     }
-
-
 }

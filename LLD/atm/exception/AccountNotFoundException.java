@@ -1,2 +1,7 @@
-package LLD.atm.exception;public class AccountNotFoundException {
+package LLD.atm.exception;
+
+public class AccountNotFoundException extends Exception{
+    public AccountNotFoundException(String message){
+        super(message);
+    }
 }

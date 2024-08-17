@@ -1,2 +1,23 @@
-package LLD.tax;public class User {
+package LLD.tax;
+
+public abstract class User {
+    private final String name;
+    private final String password;
+
+    abstract void display();
+    abstract boolean login(String name,String password);
+
+    public User(String name,String password){
+        this.name = name;
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }

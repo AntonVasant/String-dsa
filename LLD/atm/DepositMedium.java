@@ -1,2 +1,6 @@
-package LLD.atm;public enum DepositMedium {
+package LLD.atm;
+
+public enum DepositMedium {
+    CARD,
+    CHEQUE
 }

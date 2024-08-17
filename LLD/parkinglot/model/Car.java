@@ -1,2 +1,4 @@
-package LLD.parkinglot;public class Car {
+package LLD.parkinglot.model;
+
+public class Car {
 }

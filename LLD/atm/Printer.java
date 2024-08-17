@@ -1,2 +1,8 @@
-package LLD.ATM;public class Printer {
+package LLD.atm;
+
+public class Printer {
+
+    public void print(String message){
+        System.out.println(message);
+    }
 }
