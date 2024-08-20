@@ -12,11 +12,12 @@ public class Customer extends User{
     @Override
     void display() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("\tOptions");
-        System.out.println("Enter 1 to Create account\nEnter 2 to submit tax\nEnter 3 to exit");
-        int n = scanner.nextInt();
+
         boolean flag = true;
         while (flag){
+            System.out.println("\tOptions");
+            System.out.println("Enter 1 to Create account\nEnter 2 to submit tax\nEnter 3 to exit");
+            int n = scanner.nextInt();
             switch (n){
                 case 1 -> {
                     System.out.println("Enter name");

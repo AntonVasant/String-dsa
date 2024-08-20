@@ -17,10 +17,10 @@ public class Admin extends User{
     @Override
     void display() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter 1 to set regime\nEnter 2 tot view details\nEnter 3 to edit");
-        int n = scanner.nextInt();
         boolean flag = true;
         while (flag){
+            System.out.println("Enter 1 to set regime\nEnter 2 tot view details\nEnter 3 to edit\nEnter 4 to quit");
+            int n = scanner.nextInt();
             switch (n){
                 case 1 -> {
                     System.out.println("Enter regime new/old");
@@ -31,9 +31,10 @@ public class Admin extends User{
                     List<List<Integer>> list = TaxSystem.getTaxList();
                     for (List<Integer> list1 : list)
                         System.out.println(list1.get(0)+"    -     "+list1.get(1)+"%");
-                    break;
                 }
-
+                case  4 -> {
+                    flag = false;
+                }
             }
         }
     }

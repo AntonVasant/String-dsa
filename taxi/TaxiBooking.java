@@ -9,7 +9,7 @@ public class TaxiBooking {
     static int idGenerator = 1;
      static List<Taxi> bookingDetails = new ArrayList<>();
 
-    public static String booking(char pickUpLocation,char dropLocation,int pickUpTime)throws CloneNotSupportedException{
+    public static String booking(char pickUpLocation,char dropLocation,int pickUpTime){
         if(taxiList.size()<taxiLimit){
             taxiList.add(new Taxi());
         }
@@ -35,11 +35,10 @@ public class TaxiBooking {
         return taxiReady!= null ? "Taxi  Number "+taxiReady.getTaxiId()+" is booked" : "no available taxi";
     }
     public static void display(){
-        System.out.println("------------------------");
+        System.out.println("--------------------------------------------------------------------------------------");
         for(Taxi t : bookingDetails){
             System.out.println(t.toString());
-            System.out.println("--------------------------");
+            System.out.println("-----------------------------------------------------------------------------------");
         }
     }
-
 }

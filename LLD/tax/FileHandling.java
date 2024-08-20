@@ -10,7 +10,6 @@ import java.util.List;
 
 public class FileHandling {
 
-    String file = "C:\\Users\\Hp\\Desktop\\String\\LLD\\tax\\taxdetails";
 
     String userDetails = "C:\\Users\\Hp\\Desktop\\String\\LLD\\tax\\userdetails";
 
@@ -23,10 +22,10 @@ public class FileHandling {
         return instance;
     }
 
-    public List<List<Integer>> getDetails(){
+    public List<List<Integer>> getDetails(String name){
         List<List<Integer>> list = new ArrayList<>();
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(file));
+            BufferedReader reader = new BufferedReader(new FileReader(name));
             String line;
             while ((line = reader.readLine()) != null){
                 List<Integer> list1 = parse(line);

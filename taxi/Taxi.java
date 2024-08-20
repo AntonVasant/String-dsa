@@ -77,11 +77,11 @@ public class Taxi implements Cloneable{
     @Override
     public String toString() {
         return "Taxi{" +
-                "currentLocation=" + currentLocation +
+                "currentLocation=" +(char) currentLocation +
                 ", customerId=" + customerId +
                 ", taxiId=" + taxiId +
-                ", pickUpLocation=" + pickUpLocation +
-                ", dropLocation=" + dropLocation +
+                ", pickUpLocation=" +(char) pickUpLocation +
+                ", dropLocation=" +(char) dropLocation +
                 ", earnings=" + earnings +
                 ", pickUpTime=" + pickUpTime +
                 ", dropTime=" + dropTime +

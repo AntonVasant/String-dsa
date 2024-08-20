@@ -1,2 +1,5 @@
-package LLD.pharmacy;public class FieHandling {
+package LLD.pharmacy;
+
+public class FieHandling {
+
 }

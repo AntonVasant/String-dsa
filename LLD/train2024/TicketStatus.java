@@ -1,2 +1,6 @@
-package LLD.train2024;public enum TicketStatus {
+package LLD.train2024;
+
+public enum TicketStatus {
+    BOOKED,
+    WAITING
 }

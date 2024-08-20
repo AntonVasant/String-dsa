@@ -1,48 +1,25 @@
 package greedy;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 public class TaskScheduler {
     public int leastInterval(char[] tasks, int n) {
-        if (n == 0) return tasks.length; // No cooldown means just executing all tasks sequentially
-
-        // Step 1: Count frequency of each task
-        int[] frequencies = new int[26];
-        for (char task : tasks) {
-            frequencies[task - 'A']++;
-        }
-
-        // Step 2: Max-Heap to store frequencies
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
-        for (int freq : frequencies) {
-            if (freq > 0) {
-                maxHeap.offer(freq);
-            }
-        }
-
+        Map<Character,Integer> map = new HashMap<>();
+        for (char c : tasks)
+            map.put(c,map.getOrDefault(c,0)+1);
+        PriorityQueue<Integer> pq  = new PriorityQueue<>((a,b) -> b - a);
+        pq.addAll(map.values());
+        Queue<int[]> queue = new LinkedList<>();
         int time = 0;
-        Queue<int[]> cooldownQueue = new LinkedList<>();
-
-        // Step 3: Process tasks using the greedy approach
-        while (!maxHeap.isEmpty() || !cooldownQueue.isEmpty()) {
+        while (!pq.isEmpty() || !queue.isEmpty()){
+            int num = 0;
             time++;
-
-            if (!maxHeap.isEmpty()) {
-                int currentFreq = maxHeap.poll() - 1; // Process the most frequent task
-                if (currentFreq > 0) {
-                    cooldownQueue.offer(new int[] { currentFreq, time + n }); // Push into cooldown
-                }
-            }
-
-            // Check if a task has finished its cooldown
-            if (!cooldownQueue.isEmpty() && cooldownQueue.peek()[1] == time) {
-                maxHeap.offer(cooldownQueue.poll()[0]); // Reinsert back into heap
-            }
+            if(!pq.isEmpty()) num = pq.poll();
+            num--;
+            if(num > 0) queue.offer(new int[]{num,n+time});
+            if (!queue.isEmpty() &&  queue.peek()[1] <= time)
+                pq.offer(queue.poll()[0]);
         }
-
         return time;
     }
 }

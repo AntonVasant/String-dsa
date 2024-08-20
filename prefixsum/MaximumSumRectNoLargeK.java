@@ -1,2 +1,5 @@
-package prefixsum;public class MaximumSumRectNoLargeK {
+package prefixsum;
+
+public class MaximumSumRectNoLargeK {
+
 }
