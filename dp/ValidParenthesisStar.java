@@ -16,7 +16,7 @@ public class ValidParenthesisStar {
         String key = current+","+index;
         if(map.containsKey(key))
             return map.get(key);
-        Boolean flag = false;
+        boolean flag = false;
         char c = s.charAt(index);
         if(c == '('){
             flag = helper(s,map,index+1,current+1);

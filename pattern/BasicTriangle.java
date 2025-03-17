@@ -61,4 +61,84 @@ public class BasicTriangle {
 
         }
     }
+
+    public static void tri(int n){
+        int times = 1;
+        for (int i = 0; i < n; i++){
+            for (int j = 1; j < n-i; j++)
+                System.out.print(" ");
+            for (int k = 0; k < times; k++)
+                System.out.print("*");
+            times += 2;
+            System.out.println();
+        }
+
+        for (int i = 1; i < n; i++){
+            for (int j = 0; j < i; j++)
+                System.out.print(" ");
+            for (int j = 0; j < n *2 - i * 2-1; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
+    
+    public static void tri1(int n){
+        for (int i = 1; i <= n; i++){
+            for (int j = 0; j < n- i; j++)
+                System.out.print(" ");
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j);
+            }
+            for (int j = i-1; j > 0; j--) {
+                System.out.print(j);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void hallow(int n){
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (i == 1 || i == n || j == 1 || j == n || i == j || j == (n-i+1))
+                    System.out.print("* ");
+                else System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void hourGlass(int n){
+        for (int i = 0; i < n; i++){
+            for (int j = 0; j < i; j++)
+                System.out.print(" ");
+            for (int j = 0; j < 2 * n - 2*i-1; j++)
+                System.out.print("*");
+            System.out.println();
+        }
+
+        for (int i = 1; i < n; i++){
+            for (int j = 1; j < n - i; j++)
+                System.out.print(" ");
+            for (int j = 2 *i ; j >= 0; j--)
+                System.out.print("*");
+            System.out.println();
+        }
+    }
+
+
+    public static void print(String s){
+        for (int i = 0;  i < s.length(); i++){
+            for (int j = 0; j < s.length(); j++){
+                if (i ==  j || j == s.length() - i - 1)
+                    System.out.print(s.charAt(i));
+                else System.out.print("  ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
 }

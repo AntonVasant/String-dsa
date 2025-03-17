@@ -27,7 +27,7 @@ public class DoubleNumber {
         StringBuilder sb = new StringBuilder();
         int i = s.length()-1;
         int carry  =0;
-        int n = 0;
+        int n;
         while (i >= 0){
             n = Integer.parseInt(String.valueOf(s.charAt(i)));
             n += n;

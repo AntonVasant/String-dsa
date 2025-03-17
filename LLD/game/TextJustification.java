@@ -9,7 +9,7 @@ public class TextJustification {
         int index = 0;
         while (index < array.length) {
             int last = index + 1;
-            int totalCharCount = 0;
+            int totalCharCount;
             totalCharCount = array[index].length();
 
             while (last < array.length) {
@@ -45,5 +45,58 @@ public class TextJustification {
             index = last;
         }
         return list;
+    }
+
+    public static List<String> getTexts(String[] arr, int total){
+        int totalLetterCount;
+        List<String> ans = new ArrayList<>();
+        int index = 0;
+        int length = arr.length;
+        while (index < length) {
+            int last = index + 1;
+            totalLetterCount = arr[index].length();
+            while (last < length){
+                if (totalLetterCount + 1 + arr[last].length() > total) break;
+                totalLetterCount += 1 + arr[last].length();
+                last++;
+            }
+
+            StringBuilder builder = new StringBuilder();
+            builder.append(arr[index]);
+            int difference = last - index - 1;
+            if (difference == 0 || last == length){
+                for (int i = index + 1; i < last; i++){
+                    builder.append(" ").append(arr[i]);
+                }
+
+                while (builder.length() < total)
+                    builder.append(" ");
+            }
+            else {
+                int totalSpace = total - totalLetterCount + difference;
+                int individualSpace = totalSpace/ difference;
+                int leftOverSpace = totalSpace % difference;
+                for (int i = index+1; i < last; i++){
+                    for (int space = 0; space < individualSpace; space++){
+                        builder.append(" ");
+                    }
+                    builder.append(arr[i]);
+                    if (leftOverSpace > 0){
+                        builder.append(" ");
+                        leftOverSpace--;
+                    }
+                }
+            }
+            index = last;
+            ans.add(builder.toString());
+        }
+        return ans;
+    }
+
+    public static void main(String[] args) {
+        List<String> list = getTexts(new String[]{"Mershesha", "I", "Met" ,"you", "At", "Rohini", "College", "at", "first",
+                "and", "i","fell", "in", "love"}, 8);
+        for (String s : list)
+            System.out.println(s);
     }
 }

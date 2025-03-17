@@ -1,5 +1,6 @@
 package LLD.tax;
 
+
 import java.util.List;
 
 public class TaxWithAllAllowance implements TaxStrategy{
@@ -15,6 +16,7 @@ public class TaxWithAllAllowance implements TaxStrategy{
             double amount = Math.min(money,income);
             tax += amount * (percent/100.0);
             income -= amount;
+        
         }
         return tax;
     }
@@ -22,7 +24,8 @@ public class TaxWithAllAllowance implements TaxStrategy{
     private double getTaxableIncome(double income,double house,double travel,double invest,double pension){
         double hra = income/2;
         double TA = income/10;
-        double ans = (income + hra + TA) - (house + travel + invest + pension);
-        return ans;
+
+
+        return (income + hra + TA) - (house + travel + invest + pension);
     }
 }

@@ -25,6 +25,8 @@ public class SplitArrayConsecutiveSubSequence {
     }
 }
 
+
+
 /*
 Input: nums = [1,2,3,3,4,5]
 Output: true

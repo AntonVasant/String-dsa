@@ -34,8 +34,8 @@ public class Queen {
 
     private List<String> construct(char[][] board){
         List<String> list = new LinkedList<>();
-        for(int i = 0; i < board.length; i++){
-            String s = new String(board[i]);
+        for (char[] chars : board) {
+            String s = new String(chars);
             list.add(s);
         }
         return list;

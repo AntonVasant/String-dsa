@@ -19,9 +19,10 @@ public class AllConcatenatedSubString {
         int right = i;
         int currentCount = 0;
         Map<String,Integer> currentMap = new HashMap<>();
-        while (right+wordLength <= s.length()) {
+        while (right + wordLength <= s.length()) {
             String word = s.substring(right, right + wordLength);
             right += wordLength;
+
             if (wordMap.containsKey(word)) {
                 currentMap.put(word, currentMap.getOrDefault(word, 0) + 1);
                 currentCount++;

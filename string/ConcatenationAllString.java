@@ -1,9 +1,7 @@
 package string;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
 //
 public class ConcatenationAllString {
     public List<Integer> findSubstring(String s, String[] words) {
@@ -44,5 +42,30 @@ public class ConcatenationAllString {
 
         }
         return list;
+    }
+    public boolean buddyStrings(String s, String goal) {
+        int n = s.length();
+        if (n != goal.length())
+            return false;
+        if (s.equals(goal)){
+            Set<Character> set = new HashSet<>();
+            for (char c : s.toCharArray()){
+                set.add(c);
+            }
+            return set.size() < goal.length();
+        }
+
+        int i = 0;
+        int j = n - 1;
+        while (i < n && s.charAt(i) == goal.charAt(i)) i++;
+
+        while (j >= 0 && s.charAt(j) == goal.charAt(j)) j--;
+
+        char[] arr = s.toCharArray();
+        char temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+        s = new String(arr);
+        return s.equals(goal);
     }
 }

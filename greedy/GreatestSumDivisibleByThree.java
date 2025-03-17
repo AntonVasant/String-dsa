@@ -20,15 +20,16 @@ public class GreatestSumDivisibleByThree {
         if (totalSum%3 == 0)return totalSum;
         Collections.sort(remainder1);
         Collections.sort(remainder2);
+        int option1;
+        int option2;
         if (totalSum %3 == 1){
-            int option1 = (!remainder1.isEmpty()) ? remainder1.get(0) : Integer.MAX_VALUE;
-            int option2 = (remainder2.size() > 1) ? remainder2.get(0) + remainder2.get(1) : Integer.MAX_VALUE;
-            return totalSum - Math.min(option1,option2);
+            option1 = (!remainder1.isEmpty()) ? remainder1.get(0) : Integer.MAX_VALUE;
+            option2 = (remainder2.size() > 1) ? remainder2.get(0) + remainder2.get(1) : Integer.MAX_VALUE;
         }
         else {
-            int option1 = (remainder1.size() > 1) ? remainder1.get(0) + remainder1.get(1) : Integer.MAX_VALUE;
-            int option2 = (!remainder2.isEmpty()) ? remainder2.get(0) : Integer.MAX_VALUE;
-            return totalSum - Math.min(option1,option2);
+            option1 = (remainder1.size() > 1) ? remainder1.get(0) + remainder1.get(1) : Integer.MAX_VALUE;
+            option2 = (!remainder2.isEmpty()) ? remainder2.get(0) : Integer.MAX_VALUE;
         }
+        return totalSum - Math.min(option1,option2);
     }
 }

@@ -50,6 +50,10 @@ public class
                 default:
                     System.out.println("invalid move"); break;
             }
+            if (food.isEmpty()){
+                System.out.println("You won");
+                return;
+            }
             if (!snakeMove(row,col)) break;
             print();
         }
@@ -95,7 +99,7 @@ public class
         }
     }
 
-    public static void main(String a[]){
+    public static void main(String[] a){
         GamePlay gamePlay = new GamePlay(10);
     }
 }

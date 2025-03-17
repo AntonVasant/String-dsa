@@ -6,24 +6,36 @@ import java.util.Map;
 
 public class LongestCommomSubArray {
     public static int findLength(int[] nums1, int[] nums2) {
-        Map<String,Integer> map = new HashMap<>();
-        return helper(nums1,nums2,0,0,0,map);
+        Map<String, Integer> memo = new HashMap<>();
+        return helper(nums1, nums2, 0, 0, 0, memo);
     }
 
-
-    private static int helper(int[] array1,int[] array2,int index1,int index2,int count, Map<String,Integer> dp){
-        if (index1 == array1.length || index2 == array2.length) return count;
-        String key = index1+","+index2+","+count;
-        if (dp.containsKey(key)) return dp.get(key);
-
-        int take = count;
-        if(array1[index1] == array2[index2]){
-            take = helper(array1,array2,index1+1,index2+1,count+1,dp);
+    private static int helper(int[] nums1, int[] nums2, int i, int j, int count, Map<String, Integer> memo) {
+        if (i == nums1.length || j == nums2.length) {
+            return count;
         }
-        int first = helper(array1,array2,index1+1,index2,0,dp);
-        int sec = helper(array1,array2,index1,index2+1,0,dp);
-        int len = Math.max(take,Math.max(first,sec));
-        dp.put(key,len);
-        return len;
+
+        String key = i + "," + j + "," + count;
+        if (memo.containsKey(key)) {
+            return memo.get(key);
+        }
+
+        int currentCount = count;
+        if (nums1[i] == nums2[j]) {
+            currentCount = helper(nums1, nums2, i + 1, j + 1, count + 1, memo);
+        }
+
+        int skipNums1 = helper(nums1, nums2, i + 1, j, 0, memo); // Reset count when skipping
+        int skipNums2 = helper(nums1, nums2, i, j + 1, 0, memo); // Reset count when skipping
+
+        int maxLength = Math.max(currentCount, Math.max(skipNums1, skipNums2));
+        memo.put(key, maxLength);
+        return maxLength;
     }
-}
+
+
+    public static void main(String[] args) {
+        System.out.println(findLength(new int[]{3,5,2,6,7,22,7,5,8,9}, new int[]{6,7,22,4,1,8,7,0,4}));
+    }
+
+    }

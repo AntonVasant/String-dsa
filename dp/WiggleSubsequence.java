@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class WiggleSubsequence {
-    public int wiggleMaxLength(int[] nums) {
-            int inc = helper(new HashMap<>(),nums,true,0,-1);
-            int dec  = helper(new HashMap<>(),nums,false,0,Integer.MAX_VALUE);
+    public int wiggleMaxLength(int[] arr) {
+            int inc = helper(new HashMap<>(),arr,true,0,-1);
+            int dec  = helper(new HashMap<>(),arr,false,0,Integer.MAX_VALUE);
             return Math.max(inc,dec);
     }
 
@@ -18,11 +18,11 @@ public class WiggleSubsequence {
         int take = 0;
         if (isIncrease){
             if (array[index] > prev){
-                take = 1 + helper(map, array, !isIncrease, index+1, array[index]);
+                take = 1 + helper(map, array, false, index+1, array[index]);
             }
-        } else if (!isIncrease) {
+        } else {
             if (array[index] < prev){
-                take = 1 + helper(map, array, !isIncrease, index+1, array[index]);
+                take = 1 + helper(map, array, true, index+1, array[index]);
             }
         }
         int non = helper(map, array, isIncrease, index+1, prev);

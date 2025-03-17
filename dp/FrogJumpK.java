@@ -1,5 +1,11 @@
 package dp;
 
+import java.lang.reflect.MalformedParameterizedTypeException;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
 public class FrogJumpK {
     public static int jump(int[] array,int index,int k){
         if(index == 0) return 0;
@@ -26,18 +32,27 @@ public class FrogJumpK {
         return dp[index];
     }
 
-    public static int tabulation(int[] array,int[] dp,int index,int k){
-        dp[0] = 0;
-        int jump = Integer.MAX_VALUE;
-        for (int i = 1; i <= index; i++){
-            int min = Integer.MAX_VALUE;
-            for (int j = 1; j < k; j++){
-                if (i-j >= 0)
-                    jump = dp[i-j] + Math.abs(array[i] - array[i-j]);
-                min = Math.min(min,jump);
+    //can frog reach the end stone if previous jump is k then try k + 1 and  k - 1 jumps for now 403
+    public boolean canCross(int[] stones) {
+        Map<Integer, Set<Integer>> map = new HashMap<>();
+        if (stones[1] != 1) return false;
+        int n = stones.length;
+        for (int num : stones)
+            map.put(num, new HashSet<>());
+        map.get(0).add(1);
+        for (int stone : stones) {
+            Set<Integer> set = map.get(stone);
+            for (int jump : set) {
+                int reach = jump + stone;
+                if (reach == stones[n-1])
+                    return true;
+                if (map.containsKey(reach)) {
+                    map.get(reach).add(jump);
+                    map.get(reach).add(jump + 1);
+                    if (jump - 1 > 0) map.get(reach).add(jump-1);
+                }
             }
-            dp[i] = min;
         }
-       return dp[index];
+        return false;
     }
 }

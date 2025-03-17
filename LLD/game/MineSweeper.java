@@ -42,10 +42,13 @@ public class MineSweeper {
     void revealCell(int row,int col){
         if (row < 0 || col < 0 || col >= 10 || row >= 10 || revealed[row][col])
             return;
+
         revealed[row][col] = true;
         int count = countAdjacentCells(row,col);
-        if (count > 0)
-            board[row][col] = (char) (count);
+        if (count > 0){
+            char c = (char) count;
+            board[row][col] = c;
+        }
         else {
             board[row][col] = ' ';
             for (int i = -1; i < 2; i++){
@@ -84,7 +87,6 @@ public class MineSweeper {
         for (int i = 0; i < a; i++){
             for (int j = 0; j < a; j++){
                 board[i][j] = '-';
-                revealed[i][j] = false;
             }
         }
     }
@@ -104,13 +106,13 @@ public class MineSweeper {
         for (int i = 0; i < board.length; i++){
             for (int j = 0; j < board.length; j++){
                 if (revealed[i][j])
-                    System.out.print(board[i][j]+" ");
-                else System.out.print("-"+" ");
+                    System.out.print(" ");
+                else System.out.print(board[i][j]+" ");
             }
             System.out.println();
         }
     }
-    public static void main(String a[]){
+    public static void main(String[] a){
         MineSweeper mineSweeper = new MineSweeper(10);
 
     }

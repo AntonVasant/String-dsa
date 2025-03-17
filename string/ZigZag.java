@@ -20,4 +20,8 @@ public class ZigZag {
         }
 
     }
+
+    public static void main(String[] args) {
+        pattern("Antonvasanth",4);
+    }
 }

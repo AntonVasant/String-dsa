@@ -1,80 +1,54 @@
 package LLD.railway;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import LLD.librarysystem.Book;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Repository {
 
-    static Queue<Ticket> queueRAC = new LinkedList<>();
-    static Queue<Passenger> queueWaiting = new LinkedList<>();
-    static List<Ticket> confirmedTicket = new ArrayList<>();
+    Map<Integer, Booking> bookingMap;
+    private static int[] seats;
+    private static int seatLimit;
 
-    static List<Ticket> middleBerth = new ArrayList<>();
-
-    public List<Ticket> getUpperBerth() {
-        return upperBerth;
+    public Repository(int seatLimit, int points){
+        Repository.seatLimit = seatLimit;
+        bookingMap = new HashMap<>();
+        seats = new int[points];
+        Arrays.fill(seats, seatLimit);
+    }
+    public static int getSeatLimit() {
+        return seatLimit;
     }
 
-    public void setUpperBerth(List<Ticket> upperBerth) {
-        this.upperBerth = upperBerth;
+    public int[] getSeats(){
+        return seats;
     }
 
-   static List<Ticket> upperBerth = new ArrayList<>();
-    static List<Ticket> lowerBerth = new ArrayList<>();
-
-
-//    public Ticket moveRacToSeat(){
-//        Ticket ticket = queueRAC.poll();
-//
-//    }
-
-    public void addToConfirm(Ticket ticket){
-        confirmedTicket.add(ticket);
+    public void saveBooking(int id, Booking booking) {
+        bookingMap.put(id, booking);
     }
 
-    public void addWaiting(Passenger passenger){
-        queueWaiting.offer(passenger);
+    public Booking getBookingById(int id) {
+        return bookingMap.get(id);
     }
 
-    public Queue<Ticket> getQueueRAC() {
-        return queueRAC;
+    public void removeBooking(int id) {
+        bookingMap.remove(id);
     }
 
-    public Queue<Passenger> getQueueWaiting() {
-        return queueWaiting;
+
+    public void increaseSeats(int seat, char from, char to) {
+        for (int points = from - 'A'; points <= to - 'A'; points++){
+            seats[points] += seat;
+        }
     }
 
-    public void setQueueWaiting(Queue<Passenger> queueWaiting) {
-        this.queueWaiting = queueWaiting;
+    public void lowerSeats(int seat, char from, char to) {
+        for (int points = from - 'A'; points <= to - 'A'; points++){
+            seats[points] -= seat;
+        }
     }
 
-    public void setQueueRAC(Queue<Ticket> queueRAC) {
-        this.queueRAC = queueRAC;
-    }
-
-    public List<Ticket> getLowerBerth() {
-        return lowerBerth;
-    }
-
-    public List<Ticket> getMiddleBerth() {
-        return middleBerth;
-    }
-
-    public void setMiddleBerth(List<Ticket> middleBerth) {
-        this.middleBerth = middleBerth;
-    }
-
-    public void setLowerBerth(List<Ticket> lowerBerth) {
-        this.lowerBerth = lowerBerth;
-    }
-
-    public List<Ticket> getConfirmedTicket() {
-        return confirmedTicket;
-    }
-
-    public void setConfirmedTicket(List<Ticket> confirmedTicket) {
-        this.confirmedTicket = confirmedTicket;
-    }
 }

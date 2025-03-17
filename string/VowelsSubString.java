@@ -2,8 +2,6 @@ package string;
 
 public class VowelsSubString {
     public int maxVowels(String s, int k) {
-        int  left = 0;
-        int right = k;
         int len = s.length();
         int max = 0;
         int count =0;

@@ -15,4 +15,17 @@ public class XX {
             System.out.println();
         }
     }
+
+    public static void printX(String word){
+        int n = word.length();
+        for (int i = 1; i <= n; i++){
+            for (int j = 1; j <= n; j++){
+                System.out.print(i == j || j == ((n+1)-i) ? word.charAt(i-1) : " ");
+            }
+            System.out.println();
+        }
+    }
+    public static void main(String[] args) {
+        printX("Mershesha");
+    }
 }

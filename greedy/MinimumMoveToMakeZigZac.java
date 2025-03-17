@@ -1,6 +1,5 @@
 package greedy;
 
-import java.util.Map;
 
 public class MinimumMoveToMakeZigZac {
     public int movesToMakeZigzag(int[] nums) {

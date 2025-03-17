@@ -33,7 +33,7 @@ public class MinimumWindowSubString {
                     start = left;
                 }
                 map.put(leftChar,map.get(leftChar)-1);
-                if (targetFreq.containsKey(leftChar) && map.get(leftChar).intValue() < targetFreq.get(leftChar).intValue()) {
+                if (targetFreq.containsKey(leftChar) && map.get(leftChar) < targetFreq.get(leftChar)) {
                     found--;
                 }
                 left++;

@@ -1,48 +1,48 @@
 package array;
-import java.util.TreeSet;
+
+import java.util.*;
+
 public class ContainsDuplicate3 {
-        public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-            if (nums == null || nums.length < 2 || k < 1 || t < 0) {
-                return false;
-            }
+    int global = 0;
 
-            TreeSet<Long> set = new TreeSet<>();
-            for (int i = 0; i < nums.length; i++) {
-                long current = nums[i];
 
-                // Check for any number in the set that is within range [current - t, current + t]
-                Long floor = set.floor(current + t);
-                if (floor != null && floor >= current - t) {
-                    return true;
+
+    public int maxSumSubmatrix(int[][] matrix, int k) {
+        int n = matrix[0].length;
+        int m = matrix.length;
+        int ans = -1;
+        for (int i = 0; i < m; i++){
+            int[] prefix = new int[n];
+            for (int j = i; j < m; j++){
+                for (int col = 0; col < n; col++){
+                    prefix[col] += matrix[j][col];
                 }
-
-                set.add(current);
-
-                // Maintain the window of size k
-                if (set.size() > k) {
-                    set.remove((long) nums[i - k]);
-                }
+                ans = Math.max(ans, subArrayHelper(prefix,k));
             }
-
-            return false;
         }
-
-        public static void main(String[] args) {
-            ContainsDuplicate3 obj = new ContainsDuplicate3();
-            int[] nums = {1, 2, 3, 1};
-            int k = 3;
-            int t = 0;
-            System.out.println(obj.containsNearbyAlmostDuplicate(nums, k, t)); // Output: true
-
-            nums = new int[]{1, 0, 1, 1};
-            k = 1;
-            t = 2;
-            System.out.println(obj.containsNearbyAlmostDuplicate(nums, k, t)); // Output: true
-
-            nums = new int[]{1, 5, 9, 1, 5, 9};
-            k = 2;
-            t = 3;
-            System.out.println(obj.containsNearbyAlmostDuplicate(nums, k, t)); // Output: false
-        }
+        return ans;
     }
+    private int subArrayHelper(int[] arr, int limit){
+        TreeSet<Integer> prefixSums = new TreeSet<>();
+        prefixSums.add(0);
+
+        int currentSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int num : arr) {
+            currentSum += num;
+            Integer target = prefixSums.ceiling(currentSum - limit);
+            if (target != null) {
+                maxSum = Math.max(maxSum, currentSum - target);
+            }
+            prefixSums.add(currentSum);
+        }
+
+        return maxSum == Integer.MIN_VALUE ? -1 : maxSum;
+    }
+    public static void main(String[] args) {
+        ContainsDuplicate3 duplicate3 = new ContainsDuplicate3();
+
+    }
+}
 

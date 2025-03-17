@@ -1,5 +1,4 @@
 package dp;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -41,12 +40,9 @@ public class DifferentWaysToAddParenthesis {
                     }
                 }
             }
-
-            // If no operators were found (single number case)
             if (result.isEmpty()) {
                 result.add(Integer.parseInt(input));
             }
-
             memo.put(input, result);
             return result;
         }

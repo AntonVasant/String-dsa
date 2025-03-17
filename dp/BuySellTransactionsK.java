@@ -17,7 +17,7 @@ public class BuySellTransactionsK {
     private int helper(int[] array,int index,int k,int buy,int[][][] dp){
         if(index == array.length || k == 0) return 0;
         if(dp[index][k][buy] != -1) return dp[index][k][buy];
-        int profit = 0;
+        int profit;
         if(buy == 1){
             profit = Math.max(-array[index]
                     + helper(array,index+1,k,0,dp),helper(array,index+1,k,1,dp));

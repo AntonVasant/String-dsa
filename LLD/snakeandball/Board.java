@@ -3,11 +3,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
-
 public class Board {
     private char[][] board;
     private Queue<Node> food;
@@ -33,7 +28,7 @@ public class Board {
     void playGame(){
         int row = 0;
         int col = 0;
-        while (true){
+        do {
             System.out.println("Enter your move (U/D/L/R):");
             char move = scanner.next().charAt(0);
             switch (move) {
@@ -53,10 +48,7 @@ public class Board {
                     System.out.println("Invalid move. Game over.");
                     return;
             }
-            if (!snakeMove(row, col)) {
-                break;
-            }
-        }
+        } while (snakeMove(row, col));
     }
 
     boolean snakeMove(int row, int col){

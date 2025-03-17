@@ -1,6 +1,9 @@
 package dp;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class MinimumCoins {
     public int minCoins(int coins[], int M, int V)
@@ -30,5 +33,18 @@ public class MinimumCoins {
             pick = 1 + helper(coins, M, V, dp, index, target - coins[index]);
         }
         return dp[index][target] = Math.min(pick, nonPick);
+    }
+
+    public static void practice(){
+        Queue<Integer> queue = new LinkedList<>();
+        queue.offer(3);
+        queue.offer(34);
+        queue.offer(67);
+        for (int num : queue)
+            System.out.print(num);
+    }
+
+    public static void main(String[] args) {
+        practice();
     }
 }

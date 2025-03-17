@@ -30,18 +30,12 @@ public class NumberOfWaysToAddParenthesis {
                 // Combine the results from the two parts
                 for (int r1 : part1Results) {
                     for (int r2 : part2Results) {
-                        int combinedResult = 0;
-                        switch (c) {
-                            case '+':
-                                combinedResult = r1 + r2;
-                                break;
-                            case '-':
-                                combinedResult = r1 - r2;
-                                break;
-                            case '*':
-                                combinedResult = r1 * r2;
-                                break;
-                        }
+                        int combinedResult = switch (c) {
+                            case '+' -> r1 + r2;
+                            case '-' -> r1 - r2;
+                            case '*' -> r1 * r2;
+                            default -> 0;
+                        };
                         result.add(combinedResult);
                     }
                 }

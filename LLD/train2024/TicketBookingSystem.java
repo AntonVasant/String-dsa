@@ -1,7 +1,5 @@
 package LLD.train2024;
 
-import greedy.MinimumMovesToAssignArrayNumberaEqual;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -96,6 +94,9 @@ public class TicketBookingSystem {
             }
         }
     }
+
+
+
     public void displayChart(){
         System.out.println("Available seats are "+Arrays.toString(totalSeats));
         System.out.println("\t1\t2\t3\t4\t5\t6\t7\t8");

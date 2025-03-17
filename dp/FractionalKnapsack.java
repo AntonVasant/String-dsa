@@ -1,5 +1,6 @@
 package dp;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,23 +12,25 @@ class Item {
     }
 }
 public class FractionalKnapsack {
-    double fractionalKnapsack(int w, Item arr[], int n) {
+    double fractionalKnapsack(int w, Item[] arr, int n) {
+        Arrays.sort(arr, (a, b) -> Double.compare((double) b.value / b.weight, (double) a.value / a.weight));
        return helper(new HashMap<>(),w,arr,0);
     }
 
 
-    private double helper(Map<String,Double> map,int w, Item[] arr, int index){
-        if (index == arr.length) return 0;
-        String s = index+","+w;
-        if (map.containsKey(s))
-            return map.get(s);
+    private double helper(Map<String,Double> memo, int w,Item[] arr,int index){
+        if (index == arr.length || w == 0) return 0;
+        String key = index+ ","+w;
+        if (memo.containsKey(key))
+            return memo.get(key);
         double take = 0;
         if (w < arr[index].weight){
-            take = (double) (arr[index].value/arr[index].weight)*w + helper(map, 0, arr, index+1);
-        }else take = arr[index].value + helper(map, w-arr[index].weight, arr, index+1);
-        double non = helper(map, w, arr, index+1);
-        double max = Math.max(take,non);
-        map.put(s,max);
-        return max;
+            take = ((double) arr[index].value/arr[index].weight)*w;
+        }
+        else take = (double) arr[index].value + helper(memo,w-arr[index].weight,arr,index+1);
+        double nonTake = helper(memo,w,arr,index+1);
+        double ans = Math.max(take,nonTake);
+        memo.put(key,ans);
+        return ans;
     }
 }

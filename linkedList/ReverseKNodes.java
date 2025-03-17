@@ -7,12 +7,14 @@ public class ReverseKNodes {
         Node dummy = new Node(0);
         dummy.next = head;
         Node prev = dummy;
-        Node nex = dummy;
+        Node nex;
         Node current = dummy;
+
         while (current.next != null){
             current = current.next;
             count++;
         }
+
         while (count >= k){
             current = prev.next;
             nex = current.next;
@@ -25,6 +27,7 @@ public class ReverseKNodes {
             prev = current;
             count -= k;
         }
+
         return dummy.next;
     }
 }

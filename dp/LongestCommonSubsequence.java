@@ -13,6 +13,22 @@ public class LongestCommonSubsequence {
         return Math.max(first,second);
     }
 
+    int LCSof3(String A, String B, String C, int n1, int n2, int n3)
+    {
+        int[][][] dp = new int[n1+1][n2+1][n3+1];
+
+        for (int i = 1; i <= n1; i++){
+            for (int j = 1; j <= n2; j++){
+                for (int k = 1; k <= n3; k++){
+                    if (A.charAt(i-1) == B.charAt(j-1) && A.charAt(i-1) == C.charAt(k-1))
+                        dp[i][j][k] = dp[i-1][j-1][k-1] +1;
+                    else dp[i][j][k] = Math.max(dp[i-1][j][k],Math.max(dp[i][j-1][k],dp[i][j][k-1]));
+                }
+            }
+        }
+        return dp[n1][n2][n3];
+    }
+
     public static int memoization(String str1,String str2,int index1,int index2,int[][] dp){
         if (index1 == str1.length() || index2 == str2.length()) return 0;
         if (dp[index1][index2] != -1) return dp[index1][index2];
@@ -63,4 +79,5 @@ public class LongestCommonSubsequence {
                 }
         System.out.println(sb.reverse());
             }
+
 }

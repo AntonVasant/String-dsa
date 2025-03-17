@@ -1,14 +1,14 @@
 package greedy;
 
 public class MinimumDeletionToLexicographic {
-    public int minDeletionSize(String[] strs) {
+    public int minDeletionSize(String[] arr) {
         int cur = 0;
         int pointer1 = 0;
         int pointer2 = 0;
         int count = 0;
-        for (int i = 1; i < strs.length; i++){
-            while (pointer1 < strs[cur].length() && pointer2 < strs[i].length()){
-                if (strs[cur].charAt(pointer1) < strs[i].charAt(pointer2)){
+        for (int i = 1; i < arr.length; i++){
+            while (pointer1 < arr[cur].length() && pointer2 < arr[i].length()){
+                if (arr[cur].charAt(pointer1) < arr[i].charAt(pointer2)){
                     break;
                 }
                 count++;
@@ -18,7 +18,7 @@ public class MinimumDeletionToLexicographic {
             cur = i;
             pointer2 = 0;
             pointer1 = 0;
-            if (count == strs[0].length()) return count;
+            if (count == arr[0].length()) return count;
         }
         return count;
     }

@@ -6,6 +6,7 @@ public class MaximumSumNonOverlappingSubArrays {
         return Math.max(helper(nums,firstLen,secondLen),helper(nums,secondLen,firstLen));
     }
 
+
     private int helper(int[] array,int first,int sec){
         int[] prefix = new int[array.length+1];
         int n = array.length;

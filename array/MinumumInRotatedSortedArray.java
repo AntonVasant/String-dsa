@@ -20,4 +20,5 @@ public class MinumumInRotatedSortedArray {
         return min;
     }
 }
+
 //find out the sorted half and narrow down the array with low and high

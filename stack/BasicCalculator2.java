@@ -3,7 +3,7 @@ package stack;
 import java.util.Stack;
 
 public class BasicCalculator2 {
-    public int calculate(String s) {
+    public static int calculate(String s) {
         Stack<Integer> stack = new Stack<>();
         int current = 0;
         char sigh = '+';
@@ -31,5 +31,9 @@ public class BasicCalculator2 {
         for (int num : stack)
             res += num;
         return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(calculate("3+2"));
     }
 }

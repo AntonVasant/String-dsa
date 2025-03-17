@@ -37,10 +37,10 @@ public class HouseRobber {
         if(index == 1)  return nums[0];
         int[] dp = new int[index+1];
         Arrays.fill(dp, -1);
-        int[] dp2 = new int[index+1];
-        Arrays.fill(dp2, -1);
         int first = helper(nums,index-1,dp,1);
-        int second = helper(nums,index-2,dp2,0);
+        Arrays.fill(dp, -1);
+
+        int second = helper(nums,index-2,dp,0);
         return Math.max(first,second);
     }
 

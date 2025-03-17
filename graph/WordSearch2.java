@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class WordSearch2 {
-    private int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+    private final int[][] directions = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public List<String> findWords(char[][] board, String[] words) {
         List<String> ans = new ArrayList<>();

@@ -4,14 +4,14 @@ public class WildCardMatching {
     public boolean isMatch(String s, String p){
         int index1 = s.length()-1;
         int index2 = p.length()-1;
-        Boolean[][] dp = new Boolean[index1+2][index2+2];
+        Boolean[][] dp = new Boolean[index1 + 2][index2 + 2];
         return helper(s,p,index1,index2,dp);
     }
 
     private boolean helper(String s,String p,int index1,int index2,Boolean[][] dp){
         if(index1 < 0 && index2 < 0) return true;
-        if(index2 < 0 && index1 >= 0) return false;
-        if(index1 < 0 && index2 >= 0){
+        if(index2 < 0) return false;
+        if(index1 < 0){
             for(int i = index2; i >= 0; i--){
                 if(p.charAt(i) != '*') return false;
             }

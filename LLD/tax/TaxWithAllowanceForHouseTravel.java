@@ -22,7 +22,6 @@ public class TaxWithAllowanceForHouseTravel implements TaxStrategy{
     private double getTaxableIncome(double income,double house,double travel){
         double hra = income/2;
         double rent = income/10;
-        double ans = income + (hra - house) + (rent - travel);
-        return ans;
+        return income + (hra - house) + (rent - travel);
     }
 }

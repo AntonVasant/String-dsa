@@ -7,10 +7,7 @@ import java.util.ArrayList;
 public class SubSequenceSum {
     public static boolean subSequenceOne(int[] array, int index, ArrayList<Integer> list,int n,int sum,int currentSum){
         if(index >= n){
-            if(currentSum == sum){
-                System.out.println(list);
-                return true;
-            }else return false;
+            return currentSum == sum;
 
         }
         list.add(array[index]);

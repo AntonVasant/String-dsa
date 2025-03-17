@@ -2,17 +2,23 @@ package linkedList;
 
 public class DeleteMiddle {
     public Node deleteMiddle(Node head) {
-        if (head == null) return head;
-        if (head.next == null) return null;
-        Node slow = head;
-        Node fast = head;
-        Node prev  = null;
-        while (fast != null && fast.next != null){
-            fast = fast.next.next;
-            prev = slow;
-            slow = slow.next;
+        int count = 0;
+        Node current = head;
+
+        while (current != null){
+            count++;
+            current = current.next;
         }
-        if (prev != null) prev.next = slow.next;
+        current = head;
+        if(count == 1){
+            return current.next;
+        }
+        int n = (count / 2) - 1;
+        for(int i = 0; i < n; i++){
+            current = current.next;
+        }
+
+        current.next = current.next.next;
         return head;
     }
 }

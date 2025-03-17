@@ -25,7 +25,6 @@ public class MaximalSquare {
 
         if(dp[row][col] != -1) return dp[row][col];
 
-        int length = 0;
         int left = helper(matrix,dp,row,col-1);
         int top = helper(matrix,dp,row-1,col);
         int diag = helper(matrix,dp,row-1,col-1);

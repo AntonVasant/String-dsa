@@ -17,7 +17,7 @@ class Element{
 public class SmallestRange {
     public int[] smallestRange(List<List<Integer>> nums) {
         int max = Integer.MIN_VALUE;
-        PriorityQueue<Element> pq = new PriorityQueue<>((a,b) -> a.value - b.value);
+        PriorityQueue<Element> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a.value));
         for (int i = 0; i < nums.size(); i++){
             pq.offer(new Element(nums.get(i).get(0),i,0));
             max = Math.max(max,nums.get(i).get(0));

@@ -1,5 +1,6 @@
 package stack;
 
+import java.sql.Driver;
 import java.util.Stack;
 
 public class Decode {
@@ -19,13 +20,17 @@ public class Decode {
             } else if (c == ']') {
                 StringBuilder sb = stringBuilderStack.pop();
                 int l = stack.pop();
-                for (int i = 0; i < l; i++){
+                for (int i = 0; i < l; i++)
                     sb.append(current);
-                }
                 current = sb;
             }
             else current.append(c);
         }
+
         System.out.println(current);
+    }
+
+    public static void main(String[] args) {
+        decode("3[a2[b]]");
     }
 }

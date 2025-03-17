@@ -54,6 +54,7 @@ public class Main {
                 }
                 case  7:{
                     flag = false;
+                    scanner.close();
                     break;
                 }
             }

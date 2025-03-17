@@ -12,8 +12,10 @@ public class WordBreak1Tabulation {
         dp[0] = true;
         for (int i = 1; i <= n; i++){
             for (int j = 0; j <= n; j++){
-                if (dp[j] && set.contains(s.substring(j,i)))
+                if (dp[j] && set.contains(s.substring(j, i))) {
                     dp[i] = true;
+                    break;
+                }
             }
         }
         return dp[n];

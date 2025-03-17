@@ -5,6 +5,7 @@ public class ReOrder {
         if (head == null || head.next == null) return;
         Node fast = head;
         Node slow = head;
+
         while (fast != null && fast.next != null){
             fast = fast.next.next;
             slow = slow.next;
@@ -13,15 +14,18 @@ public class ReOrder {
         Node cur = slow.next;
         slow.next = null;
         Node prev = null;
-        Node next = null;
+        Node next;
+
         while (cur != null){
             next = cur.next;
             cur.next = prev;
             prev = cur;
             cur = next;
         }
+
         Node first = head;
         Node sec = prev;
+
         while (sec != null){
             next = first.next;
             first.next = sec;
@@ -30,5 +34,6 @@ public class ReOrder {
             sec.next = first;
             sec = next;
         }
+
     }
 }

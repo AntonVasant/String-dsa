@@ -5,13 +5,13 @@ public class DecimalToFraction {
         String dec = Double.toString(number);
         int index = dec.indexOf(".");
         int balance = dec.length() - index - 1;
-        int denominator =(int) Math.pow(10,balance);
+        int denominator = (int) Math.pow(10,balance);
         int numerator = (int) (number * denominator);
+        System.out.println(denominator+" "+numerator);
         int gcd = GCD(denominator,numerator);
-        System.out.println(gcd);
         denominator /= gcd;
         numerator /= gcd;
-        System.out.println(numerator +" "+ denominator);
+        System.out.println(numerator +"/"+ denominator);
     }
 
 
@@ -24,7 +24,7 @@ public class DecimalToFraction {
         return -1;
     }
 
-    public static void main(String a[]){
+    public static void main(String[] a){
         decimalFraction(3.125);
     }
 }

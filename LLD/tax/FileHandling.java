@@ -47,9 +47,11 @@ public class FileHandling {
                 User user = convertUser(line);
                 system.saveUser(user.getName(),user);
             }
+            reader.close();
         }catch (IOException e){
             System.out.println("File not found");
         }
+
     }
 
     private List<Integer> parse(String s){

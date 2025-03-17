@@ -49,16 +49,23 @@ public class Main {
          for (int i =0;i<SIZE;i++){
              if (board[row][i] == num || board[i][col] == num)
                  return false;
-
+         }
+         int startRow = row - (row % 3);
+         int startCol = col - (col % 3);
+         for (int i = startRow; i < startCol + 3; i++){
+             for (int j = startCol; j < startCol + 3; j++){
+                 if (board[i][j] == num)
+                     return false;
+             }
          }
        return true;
      }
      private static void print(){
-         for (int row=0;row<SIZE;row++){
-             if (row != 0 && row%3 == 0)
-                 System.out.println("--------------------------");
-             for (int col =0;col<SIZE;col++){
-                 if (col != 0 && col%3 ==0)
+         for (int row = 0; row < SIZE; row++){
+             if (row != 0 && row % 3 == 0)
+                 System.out.println("------------------------------");
+             for (int col = 0; col < SIZE; col++){
+                 if (col != 0 && col%3 == 0)
                      System.out.print("|");
                  System.out.print(" "+board[row][col]+" ");
              }

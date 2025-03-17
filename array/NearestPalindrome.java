@@ -21,7 +21,7 @@ public class NearestPalindrome {
 
     private static String mirror(String s,boolean even){
         StringBuilder sb = new StringBuilder(s);
-        if (even){
+        if (!even){
             return sb.reverse().toString();
         }else return sb.reverse().substring(1);
     }
@@ -32,5 +32,9 @@ public class NearestPalindrome {
                 return false;
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        palindrome(434433);
     }
 }

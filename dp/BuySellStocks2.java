@@ -11,13 +11,15 @@ public class BuySellStocks2 {
         }
         return helper(prices,1,0,dp,n);
     }
-    private int helper(int[]array,int buy,int index,int[][] dp,int n){
+    private int helper(int[] array,int buy,int index,int[][] dp,int n){
         if(index == array.length) return 0;
         if(dp[index][buy] != -1) return dp[index][buy];
-        int profit = 0;
+        int profit;
         if(buy == 1){
-            profit = Math.max(-array[index] + helper(array,0,index+1,dp,n),helper(array,1,index+1,dp,n));
-        }else profit = Math.max(array[index] + helper(array,1,index+1,dp,n),helper(array,0,index+1,dp,n));
+            profit = Math.max(-array[index] + helper(array,0,index+1,dp,n),
+                    helper(array,1,index+1,dp,n));
+        }else profit = Math.max(array[index] + helper(array,1,index+1,dp,n),
+                helper(array,0,index+1,dp,n));
         return dp[index][buy] = profit;
     }
 }

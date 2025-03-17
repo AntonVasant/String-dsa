@@ -9,9 +9,9 @@ public class MergeSort {
         middle.next = null;
         Node left = sorting(head);
         Node right = sorting(next);
-        Node newHead = merge(left,right);
-        return newHead;
+        return merge(left,right);
     }
+
 
     private Node findMiddle(Node head){
         Node fast = head.next;

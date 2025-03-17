@@ -36,4 +36,9 @@ public class ScrambledString {
         map.put(key,false);
         return false;
     }
+
+    public static void main(String[] args) {
+        ScrambledString scrambledString = new ScrambledString();
+        System.out.println(scrambledString.isScramble("great","rgeat"));
+    }
 }

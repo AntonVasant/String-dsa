@@ -1,10 +1,9 @@
 package rescursion;
 
-import jdk.jfr.SettingControl;
-
 import java.util.*;
 
 public class ConcatenateWords {
+
     public List<String> findAllConcatenatedWordsInADict(String[] words) {
         List<String> list = new ArrayList<>();
         Set<String> set = new HashSet<>(Arrays.asList(words));

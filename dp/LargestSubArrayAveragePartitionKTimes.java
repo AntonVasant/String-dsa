@@ -3,14 +3,14 @@ package dp;
 import java.util.Arrays;
 
 public class LargestSubArrayAveragePartitionKTimes {
-    public double largestSumOfAverages(int[] nums, int k) {
-        int n = nums.length;
+    public double largestSumOfAverages(int[] arr, int k) {
+        int n = arr.length;
         int[] prefix = new int[n+1];
         for (int i = 0; i < n; i++)
-            prefix[i+1] = prefix[i] + nums[i];
+            prefix[i+1] = prefix[i] + arr[i];
         double[][] memo = new double[n][k+1];
-        for (double[] arr : memo)
-            Arrays.fill(arr,-1);
+        for (double[] a : memo)
+            Arrays.fill(a,-1);
         return helper(memo,prefix,0,k,n);
     }
 

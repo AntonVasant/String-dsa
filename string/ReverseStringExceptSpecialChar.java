@@ -5,9 +5,9 @@ public class ReverseStringExceptSpecialChar {
         int left=0;
         int right=str.length()-1;
         char[] chars = str.toCharArray();
-        while(left<right){
+        while(left < right){
             if(!isSpecialChar(chars[left])){
-                while(right>left && isSpecialChar(chars[right]))
+                while(right > left && isSpecialChar(chars[right]))
                     right--;
                 char temp=chars[left];
                 chars[left]=chars[right];

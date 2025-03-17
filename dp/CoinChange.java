@@ -3,14 +3,21 @@ package dp;
 import java.util.Arrays;
 
 public class CoinChange {
+    public static void main(String[] args) {
+        System.out.println(Integer.MIN_VALUE);
+
+    }
     public int coinChange(int[] coins, int amount) {
         int[][] dp = new int[coins.length+1][amount+1];
-        for(int i = 0; i < dp.length; i++){
-            Arrays.fill(dp[i],-1);
+        for (int[]  arr : dp) {
+            Arrays.fill( arr, -1);
         }
         int ans = helper(coins,amount,coins.length-1,dp);
         return ans >= (int)1e9 ? -1 : ans;
     }
+
+
+
     private int helper(int[] array,int amount,int index,int[][] dp){
         if (amount == 0) return 0;
         if (index < 0) return (int)1e9;

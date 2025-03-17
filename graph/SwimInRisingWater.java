@@ -13,7 +13,7 @@ public class SwimInRisingWater {
         visited[0][0]  = true;
         int[][] dir = {{1,0},{0,1},{-1,0},{0,-1}};
         while (!pq.isEmpty()){
-            int cur[] = pq.poll();
+            int[] cur = pq.poll();
             int r = cur[0];
             int c  = cur[1];
             int height = cur[2];

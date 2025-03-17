@@ -1,7 +1,5 @@
 package dp;
 
-import graph.FreedomTrail;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ public class DeleteEarn {
         if (n == 1)  return map.getOrDefault(1,0);
         if (memo.containsKey(n)) return memo.get(n);
         int point = map.getOrDefault(n,0);
-        int ans = Math.max(helper(map,n-1,memo),point+helper(map, n-2, memo));
+        int ans = Math.max(helper(map,n-1,memo), point+helper(map, n-2, memo));
         memo.put(n,ans);
         return ans;
     }

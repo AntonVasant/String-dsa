@@ -28,4 +28,9 @@ public class Rotate {
             high--;
         }
     }
+
+    public static void main(String[] args) {
+        Rotate rotate = new Rotate();
+        rotate.rotate(new int[][]{{1,2,3}, {4,5,6}, {7,8,9}});
+    }
 }

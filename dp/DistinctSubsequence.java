@@ -7,8 +7,8 @@ public class DistinctSubsequence {
         int index1 = s.length();
         int index2 = t.length();
         int[][] dp = new int[index1+1][index2+1];
-        for(int i = 0; i < dp.length; i++){
-            Arrays.fill(dp[i],-1);
+        for (int[] arr : dp) {
+            Arrays.fill(arr, -1);
         }
         return helper(s,t,dp,index1-1,index2-1);
     }

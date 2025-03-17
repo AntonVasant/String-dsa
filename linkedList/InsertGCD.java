@@ -1,7 +1,7 @@
 package linkedList;
 
 public class InsertGCD {
-    public ListNode insertGreatestCommonDivisors(ListNode head) {
+    public ListNode insertGreatestCommonDivisors(ListNode head){
         if (head == null || head.next == null) return head;
         ListNode dummy = new ListNode(-1);
         dummy.next = head;

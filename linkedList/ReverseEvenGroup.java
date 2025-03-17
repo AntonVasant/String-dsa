@@ -16,8 +16,6 @@ public class ReverseEvenGroup {
                 current = current.next;
                 count++;
             }
-
-            // If the group length is even, reverse the group
             if (count % 2 == 0) {
                 prevGroupEnd.next = reverseGroup(groupStart, count);
             } else {

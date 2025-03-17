@@ -11,17 +11,17 @@ public class BuySellStocks3 {
                 }
             }
         }
-        return helper(prices,1,0,dp,n,2);
+        return helper(prices,1,0,dp, 2);
     }
-    private int helper(int[]array,int buy,int index,int[][][] dp,int n,int cap){
+    private int helper(int[]array, int buy, int index, int[][][] dp, int cap){
         if(index == array.length || cap == 0) return 0;
         if(dp[index][buy][cap] != -1) return dp[index][buy][cap];
-        int profit = 0;
+        int profit;
         if(buy == 1){
             profit = Math.max(-array[index]
-                    + helper(array,0,index+1,dp,n,cap),helper(array,1,index+1,dp,n,cap));
+                    + helper(array,0,index+1,dp, cap),helper(array,1,index+1,dp, cap));
         }else profit = Math.max(array[index]
-                + helper(array,1,index+1,dp,n,cap-1),helper(array,0,index+1,dp,n,cap));
+                + helper(array,1,index+1,dp, cap-1),helper(array,0,index+1,dp, cap));
         return dp[index][buy][cap] = profit;
     }
 }
